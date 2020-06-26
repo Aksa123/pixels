@@ -14,7 +14,7 @@ def admin_middleware(get_response):
                 pass
             else:
                 return JsonResponse({
-                    "subject": "access denied", 
+                    "subject": "access denied on branch test", 
                     "content": "u must be logged in as admin bruh", 
                     "by": "Aksa", 
                     "date": datetime.now().strftime("%c")})
