@@ -1,0 +1,25 @@
+{% extends 'profile_base_self.html' %}
+
+
+{% block menu_content %}
+
+    <div class="collection-content">
+        {% for following in following_users %}
+            <div class="collection-follower">
+                <a href="{% url 'profile' following.following_user.id following.following_user.userprofile.slug %}">
+                    <img src="{{ following.following_user.userprofile.get_url }}" class="rounded-circle collection-follower-avatar">
+                    <p class="collection-follower-name">{{ following.following_user.userprofile.name }}</p>
+                    <div class="collection-follower-photo-container">
+                        {% for photo in following.photos %}
+                            <img src="{{ photo.get_url }}" class="collection-follower-photo" alt="noimage">
+                        {% endfor %}
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+        
+        
+
+    </div>
+
+{% endblock menu_content %}

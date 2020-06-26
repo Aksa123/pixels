@@ -1,0 +1,34 @@
+body{
+    background-color: aquamarine;
+}
+
+
+.parent{
+    background-color: chartreuse;
+    height: 500px;
+    width: 500px;
+    position: relative;
+}
+
+.div-inline{
+    display: inline;
+    background-color: antiquewhite;
+    text-align: center;
+    
+}
+
+.div-inline-block{
+    display: inline-block;
+    background-color: blueviolet;
+    vertical-align: middle;
+}
+
+.wh-43{
+    width: 400px;
+    height: 300px;
+}
+
+.wh-45{
+    width: 400px;
+    height: 500px;
+}

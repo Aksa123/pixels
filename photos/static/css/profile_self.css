@@ -1,0 +1,171 @@
+
+
+.profile-box{
+    border: black solid 2px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 100px;
+    width: 40%;
+    min-width: 500px;  
+}
+
+#avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-auto-rows: 150px;
+    grid-auto-columns: minmax(150px, auto);
+    grid-column-gap: 10px;
+}
+
+#username{
+    font-size: 30px;
+    color: black;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.follow-message-button-container{
+    display: inline-block;
+    margin-left: 50px;
+    vertical-align: middle;
+    /* float: right; */
+}
+
+.description-paragraph{
+    margin-top: 20px;
+}
+
+.follow-message-button{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+.collection-bar{
+    margin-left: 20px;
+    margin-right: 20px;
+    /* display: grid;
+    grid-template-columns: 10% 10% 10% 50% 10% 10%; */
+    /* grid-gap: 20px; */
+    border: 1px greenyellow solid;
+    height: 40px;
+}
+
+.collection-bar a:hover{
+    text-decoration: none;
+    color: #0064F9;
+}
+.collection-bar a:link{
+    text-decoration: none;
+    color: #5e5e5e;
+}
+.collection-bar a:visited{
+    text-decoration: none;
+    color: #5e5e5e;
+}
+.collection-bar a:active{
+    text-decoration: none;
+    color: #0064F9;
+}
+
+.collection-bar .menu{
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.collection-bar .menu a{
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 18px;
+    margin: auto;
+    text-decoration: solid;
+    
+}
+
+.collection-bar .menu:hover a{
+    color: #0064F9;
+}
+
+
+.collection-bar .menu-alignment-left{
+    float: left;
+}
+
+.collection-bar .menu-alignment-right{
+    float: right;
+}
+
+
+
+.selected{
+    border-bottom: 2px #0064F9 solid !important;
+}
+
+.selected a{
+    color: #0064F9 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.collection-content{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    grid-auto-columns: auto;
+    grid-auto-rows: auto;
+    text-align: center;
+    
+}
+
+.collection-content img{
+    width: 400px;
+    max-height: 250px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.collection-item{
+    border: solid black 1px;
+}
+
+.clicked-state{
+    border-bottom:#0069D9 solid 5px;
+}

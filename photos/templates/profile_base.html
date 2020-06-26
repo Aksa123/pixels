@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Pixels - {{ profile.name }}'s Profile
+{% endblock title %}
+
+{% block content %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/profile_base.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Open+Sans:wght@300&display=swap" rel="stylesheet"> 
+    <div class="profile-box">
+        <div id="avatar-container">
+            <img src="{{ profile.get_url }}" id="avatar" >
+        </div>
+        <div id="profile-detail">
+            <div id="username"><strong>{{ profile.name }}</strong></div>
+            <div class="follow-message-button-container">
+                {% if data_js.follow_status %}
+                    <button id="follow-button" class="btn btn-secondary follow-message-button"><i>Following</i></button>
+                {% else %}
+                    {% if user.is_authenticated %}
+                        <button id="follow-button" class="btn btn-info follow-message-button">Follow</button>
+                    {% else %}
+                        <a href="{% url 'login' %}"><button id="follow-button" class="btn btn-info follow-message-button">Follow</button></a>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <label class="follow-text">{{ data_js.follow_text }}</label>
+            <p class="description-paragraph"> {{ profile.description }}</p>
+        </div>
+        {% csrf_token %}
+        
+
+    </div>
+    <br>
+
+    <div class="collection-bar">
+        
+        <!-- Photo section is selected by default -->
+        {% if menu == "photo" %}
+            <div class="menu menu-alignment-left selected">
+        {% else %}
+            <div class="menu menu-alignment-left">
+        {% endif %}
+            <a href="{% url 'profile' profile.user.id profile.slug %}" >
+                Photos
+            </a>
+        </div>
+        
+        {% if menu == "follower" %}
+            <div class="menu menu-alignment-left selected">
+        {% else %}
+            <div class="menu menu-alignment-left">
+        {% endif %}
+            <a href="{% url 'profile_follower' profile.user.id profile.slug %}">
+               Followers
+            </a>
+        </div>
+
+        {% if menu == "following" %}
+            <div class="menu menu-alignment-left selected">
+        {% else %}
+            <div class="menu menu-alignment-left">
+        {% endif %}
+            <a href={% url 'profile_following' profile.user.id profile.slug %}>
+                Following
+            </a>
+        </div>
+
+        {% if menu == "favorite" %}
+            <div class="menu menu-alignment-left selected">
+        {% else %}
+            <div class="menu menu-alignment-left">
+        {% endif %}
+            <a href="{% url 'profile_favorite' profile.user.id profile.slug%}">
+                Favorites
+            </a>
+        </div>
+
+        {% if menu == "stat" %}
+            <div class="menu menu-alignment-left selected">
+        {% else %}
+            <div class="menu menu-alignment-left">
+        {% endif %}
+            <a href="{% url 'profile_stat' profile.user.id profile.slug%}">
+                Stats
+            </a>
+        </div>
+
+    </div>
+
+
+    
+
+    {% block menu_content %}
+    {% endblock menu_content %}
+
+
+
+    {{ data_js|json_script:"profile-data"}}
+    <script src="{% static 'js/profile_base.js' %}"}></script>
+
+
+{% endblock content %}

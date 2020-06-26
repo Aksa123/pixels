@@ -1,0 +1,24 @@
+<!doctype html>
+
+
+<html>
+    <head>
+        <title>
+           test html css
+        </title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/test.css' %}">
+    </head>
+
+
+    <body>
+        {% for x in img %}
+            image name = {{ x.name }}, {{ x.weekly_view}}
+            <br>
+        {% endfor %}
+
+    </body>
+
+
+
+</html>

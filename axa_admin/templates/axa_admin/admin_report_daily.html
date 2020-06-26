@@ -1,0 +1,77 @@
+{% extends 'axa_admin/base.html' %}
+
+
+{% block content %}
+
+<h1 class="h3 mb-4 text-gray-800">Daily {{report_name_capitalize}} Report</h1>
+
+
+
+<div class="bootstrap-iso">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+
+      <!-- Form code begins -->
+        <form method="GET" id="admin-report-form" action="{% url 'admin_report_daily' report_name %}">
+          <div class="form-group"> <!-- Date input -->
+            <label class="control-label" for="date">Date Start</label>
+            <input class="form-control axa-datepicker" id="date" name="date_start" placeholder="DD/MM/YYY" type="text"/ required>
+          </div>
+          <div class="form-group"> <!-- Date input -->
+            <label class="control-label" for="date">Date End</label>
+            <input class="form-control axa-datepicker" id="date" name="date_end" placeholder="DD/MM/YYY" type="text"/ required>
+          </div>
+          <div class="form-group"> <!-- Submit button -->
+            <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+          </div>
+        </form>
+        <!-- Form code ends --> 
+
+      </div>
+     
+    </div>    
+    <br>
+
+     {% if report_data %}
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Daily {{report_name_capitalize}}s</h6>
+            </div>
+            <div class="card-body">
+              <div class="chart-area">
+                <canvas id="watashi-no-chart"></canvas>
+              </div>
+            </div>
+          </div>
+
+      {% endif %}
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block static_file %}
+
+  <script>
+    $(document).ready(function(){
+        var date_input=$('.axa-datepicker'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'dd-mm-yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+  </script>
+
+
+
+  {% if report_data %}
+    {% load static %}
+    {{ report_data|json_script:"report_data" }}
+    <script src="{% static 'axa_admin/js/admin_report.js'%}"></script>
+  {% endif %}
+
+{% endblock static_file %}

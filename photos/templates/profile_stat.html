@@ -1,0 +1,53 @@
+{% extends 'profile_base.html' %}
+
+
+{% block menu_content %}
+    {% load static %}
+    
+        <div class="stats-container">
+            <div class="aggregate-container">
+                <p class="aggregate-value"><span class="aggregate-value-style">{{ stats.aggregate_data.total_views_full }}</span></p>
+                <label class="aggregate-title">Total Image Views</label>
+                <p class="aggregate-value"><span class="aggregate-value-style">{{ stats.aggregate_data.total_favorites }}</span></p>
+                <label class="aggregate-title">Total Favorites</label>
+                <p class="aggregate-value"><span class="aggregate-value-style">{{ stats.aggregate_data.total_likes }}</span></p>
+                <label class="aggregate-title">Total Likes</label>
+                <p class="aggregate-value"><span class="aggregate-value-style">{{ stats.aggregate_data.total_downloads }}</span></p>
+            <label class="aggregate-title">Total Downloads</label>
+
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="myChart"></canvas>
+            </div>
+
+        </div>
+
+        <div id="images-container">
+        {% for photo in photos %}
+            <div class="image-box">
+                <a href="{% url 'photo_detail' photo.id %}"><img class="image-item" src="{{ photo.get_url_thumb }}"></a>
+                {% comment %} <img class="image-stat-icon-1" src="{% static 'img/like_icon.png' %}">
+                <span class="stat-icon-number">{{ photo.total_like }}</span>
+                <img class="image-stat-icon-2" src="{% static 'img/favorite_icon.png' %}">
+                <img class="image-stat-icon-3" src="{% static 'img/like.png' %}"> {% endcomment %}
+            </div>
+
+
+
+
+        {% endfor %}
+    </div>
+
+
+
+        {{ stats|json_script:"stats-data"}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+        <script src="{% static 'js/profile_stat.js' %}"></script>
+
+
+
+
+        
+
+{% endblock menu_content %}

@@ -1,0 +1,130 @@
+
+
+.collection-bar{
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px greenyellow solid;
+    height: 40px;
+}
+
+.collection-bar a:hover{
+    text-decoration: none;
+    color: #0064F9;
+}
+.collection-bar a:link{
+    text-decoration: none;
+    color: #5e5e5e;
+}
+.collection-bar a:visited{
+    text-decoration: none;
+    color: #5e5e5e;
+}
+.collection-bar a:active{
+    text-decoration: none;
+    color: #0064F9;
+}
+
+.collection-bar .menu{
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.collection-bar .menu a{
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 18px;
+    margin: auto;
+    text-decoration: solid;
+    
+}
+
+.collection-bar .menu:hover a{
+    color: #0064F9;
+}
+
+
+.collection-bar .menu-alignment-left{
+    float: left;
+}
+
+.collection-bar .menu-alignment-right{
+    float: right;
+}
+
+
+
+.selected{
+    border-bottom: 2px #0064F9 solid !important;
+}
+
+.selected a{
+    color: #0064F9 !important;
+}
+
+
+
+
+/* content specific */
+
+.collection-content{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    grid-auto-columns: auto;
+    grid-auto-rows: auto;
+    /* text-align: center; */
+    
+}
+
+.collection-follower{
+    padding: 20px;
+    height: auto;
+    border: 1px solid green;
+}
+
+.collection-follower-avatar{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    
+    
+}
+
+.collection-follower p{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+/* .collection-follower-photo-container{
+    margin-top: 20px;
+
+} */
+.collection-follower-photo{
+    /* display: inline-block; */
+    height: 130px;
+    width: 130px;
+    align-self: center;
+    object-fit: cover;
+}
+
+
+.collection-follower-photo-container{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    grid-auto-rows: auto;
+    text-align: center;
+    align-items: center;
+}
+
+.collection-follower-follow-button{
+    width: 100%;
+    margin-top: 20px;
+}

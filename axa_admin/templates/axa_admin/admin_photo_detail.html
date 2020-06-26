@@ -1,0 +1,60 @@
+{% extends 'axa_admin/base.html' %}
+
+
+{% block content %}
+
+<h1 class="h3 mb-4 text-gray-800">Photo Detail</h1>
+
+{% comment %} 
+<form method="POST" action="{% url 'admin_photo_detail' object.id %}">
+  <img id="preview-image" max-width="800px" max-height="500px" src="{{object.get_url}}">
+  <br>
+  <br>
+  <input class="btn btn-success" type="file" id="img" name="image" accept="image/*" onchange="document.getElementById('preview-image').src = window.URL.createObjectURL(this.files[0])">
+  <br>
+  <br>
+  <div class="form-group">
+    <label for="input-name">Name</label>
+    <input type="text" class="form-control" id="input-name" aria-describedby="emailHelp" name="name" value={{object.name}}>
+  </div>
+  <div class="form-group">
+    <label for="input-tag">Tags</label>
+    <select class="custom-select" id="input-tag" name="tag" multiple>
+      {% for tag in tags %}
+        {% if tag.id in object.get_tag_id %}
+        <option value={{tag.id}} selected>{{tag.name}}</option>
+        {% else %}
+        <option value={{tag.id}}>{{tag.name}}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="input-description">Description</label>
+    <textarea class="form-control" id="input-description" rows="3" name="description">{{object.description}}</textarea>
+  </div>
+
+  {% csrf_token %}
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> {% endcomment %}
+
+<form method="POST" enctype="multipart/form-data">
+  <img id="preview-image" max-width="800px" max-height="500px" src="{{object.get_url}}">
+  {{form.as_p}}
+  {% csrf_token %}
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+
+<script>
+  let preview_image_upload = document.querySelector("#id_photo")
+  preview_image_upload.addEventListener("change", function(){
+    document.getElementById('preview-image').src = window.URL.createObjectURL(this.files[0])
+  })
+
+</script>
+
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+
+
+
+/* masonry image */
+#masonry-container{
+    max-width: 100%;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+.masonry-image-container{
+    width: auto;
+}
+
+.masonry-image{
+    width: 100%;
+}

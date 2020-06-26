@@ -1,0 +1,16 @@
+
+
+#preview-image{
+    max-width: 600px;
+    max-height: 300px;
+
+}
+
+.admin-menu-link{
+    color: red;
+}
+
+.photo-list-item-image{
+    max-width: 100px;
+    max-height: 100px;
+}

@@ -1,0 +1,28 @@
+
+
+#upload-box{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 40%;
+    min-width: 350px;
+}
+
+
+#upload-terms-title{
+    color:red;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#upload-form{
+    text-align: center;
+}
+
+#upload-form img{
+    margin-bottom: 30px;
+    max-width: 300px;
+    max-height: 200px;
+}
+

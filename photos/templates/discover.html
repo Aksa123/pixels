@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'css/homepage.css'%}">
+    <link rel="stylesheet" href="{% static 'css/discover.css'%}">
+
+    <div class="home-content-menu">
+            <a class="home-content-item" href="{% url 'home' %}">
+                <div >
+                    Home
+                </div>
+            </a>
+            <a href="{% url 'discover' %}" class="home-content-item selected-menu">
+                <div >
+                    Discover
+                </div>
+            </a>
+            <a href="{% url 'search' 'trending' %}" class="home-content-item">
+                <div >
+                    Trending
+                </div>
+            </a>
+            <a href="{% url 'search' 'newest' %}" class="home-content-item">
+                <div >
+                    Newest
+                </div>
+            </a>
+            <a href="{% url 'search' 'most-popular' %}" class="home-content-item">
+                <div >
+                    Most Popular
+                </div>
+            </a>
+    </div>
+
+
+    <div id="discover-container">
+
+        {% for tag in tag_list %}
+            <div class="tag-container">
+                <a href="{% url 'search' tag.name %}"> 
+                    <h3>{{ tag.name }}</h3>
+                    {% for photo in tag.photos %}
+                        <img src="{{ photo.get_url_thumb }}" class="tag-photo">
+                    {% endfor %}
+                </a>
+            </div>
+        {% endfor %}
+
+    </div>
+
+
+
+{% endblock content %}

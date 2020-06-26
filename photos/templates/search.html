@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/macy@2"></script>
+    <link rel="stylesheet" href="{% static 'css/profile_photo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search.css'%}">
+
+    <div id="result-container">
+        <h1 id="result-keyword">{{ keyword }}</h1>
+        <div id="masonry-container">
+            {% if not photos %}
+                <h1 id="empty-text">Nothing to see here!</h1>
+            {% endif %}
+            {% for photo in photos %}
+                {% if forloop.last and photos|length >= 20 %}
+                    <div class="masonry-image-container">
+                        <a href="{% url 'photo_detail' photo.id %}"><img class="masonry-image" id="last-image" src="{{ photo.get_url_thumb }}"></a>
+                    </div>
+                {% else %}
+                    <div class="masonry-image-container">
+                        <a href="{% url 'photo_detail' photo.id %}"><img class="masonry-image" src="{{ photo.get_url_thumb }}"></a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    {% csrf_token %}
+    {{ data_js|json_script:"data_js"}}
+    <script src="{% static 'js/masonry_images.js' %}"></script>
+
+{% endblock content %}

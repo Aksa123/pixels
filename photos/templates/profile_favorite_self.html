@@ -1,0 +1,31 @@
+{% extends 'profile_base_self.html' %}
+
+
+{% block menu_content %}
+
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/macy@2"></script>
+    <link rel="stylesheet" href="{% static 'css/profile_photo.css' %}">
+
+
+    <div id="masonry-container">
+        {% for fav in favorites %}
+            {% if forloop.last and photos|length >= 20 %}
+                <div class="masonry-image-container">
+                    <a href="{% url 'photo_detail' fav.photo.id %}"><img class="masonry-image" id="last-image" src="{{ fav.photo.get_url_thumb }}"></a>
+                </div>
+            {% else %}
+                <div class="masonry-image-container">
+                    <a href="{% url 'photo_detail' fav.photo.id %}"><img class="masonry-image" src="{{ fav.photo.get_url_thumb }}"></a>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+    {{ data_js|json_script:"data_js"}}
+    <script src="{% static 'js/masonry_images.js' %}"></script>
+
+
+
+{% endblock menu_content %}

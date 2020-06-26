@@ -1,0 +1,30 @@
+
+
+.login-box{
+    border: black solid 2px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 100px;
+    width: 40%;
+}
+
+.bio-box{
+    position: relative;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.login-input{
+    position: relative;
+    max-width: 300px;
+}
+
+#unmatched_password{
+    color:red;
+    display: none;
+}
+
+
+#submit_button{
+    margin-bottom: 70px;
+}

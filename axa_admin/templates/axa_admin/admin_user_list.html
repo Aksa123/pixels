@@ -1,0 +1,62 @@
+{% extends 'axa_admin/base.html' %}
+
+{% block content %}
+
+<!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">User List</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Followers</th>
+                      <th>Slug</th>
+                      <th>Join Date</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Followers</th>
+                      <th>Slug</th>
+                      <th>Join Date</th>
+                      <th>Action</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    {% for item in object_list %}
+                    <tr>
+                      <td>{{item.id}}</td>
+                      <td>{{item.name}}</td>
+                      <td>{{item.total_follower}}</td>
+                      <td>{{item.slug}}</td>
+                      <td>{{item.user.date_joined|date}}</td>
+                      <td>
+                        <a class="btn btn-success" href="{% url 'admin_user_detail' item.id %}">Edit</a>
+                        <form method="POST" action="{% url 'admin_user_delete' item.id %}" style="display: inline">
+                          {% csrf_token %}
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+{% endblock content %}

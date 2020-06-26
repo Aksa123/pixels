@@ -1,0 +1,23 @@
+
+
+#result-container{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#result-keyword{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#empty-text{
+    display: block;
+    text-align: center;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+    
+    color: grey;
+}

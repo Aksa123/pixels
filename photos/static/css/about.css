@@ -1,0 +1,73 @@
+
+
+#top-menu-container{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.top-menu{
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 600;
+    font-size: large;
+    height: 50px;
+    vertical-align: middle;
+    color: black;
+}
+
+.selected{
+    border-bottom: 5px rgb(0, 100, 249) solid;
+    color: rgb(0, 100, 249);
+}
+
+
+
+
+
+#top-background{
+    height: 300px;
+    background-position: 60% 70%;
+}
+
+#top-background-text-container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    max-width: 650px;
+    min-width: 550px;
+    text-align: center;
+    color: antiquewhite;
+    font-weight: 700;
+    padding-top: 70px;
+}
+
+
+#about-container{
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    max-width: 650px;
+    min-width: 550px;
+    
+}
+
+#about-container h2{
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#my-photo{
+    display: inline-block;
+    vertical-align: middle;
+    width: 25%;
+}
+
+#my-bio{
+    display: inline-block;
+    vertical-align: top;
+    width: 70%;
+}

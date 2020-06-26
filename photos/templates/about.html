@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Pixels - About
+{% endblock title %}
+
+{% block content %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+    <div id="top-menu-container">
+        <a href="https://www.google.com">
+            <div class="top-menu selected">
+                <span>About</span>
+            </div>
+        </a>
+        <a >
+            <div class="top-menu">
+                License
+            </div>
+        </a>
+        <a >
+            <div class="top-menu">
+                FAQ
+            </div>
+        </a>
+
+
+    </div>
+
+
+
+    <div id="top-background" style="background-image: url('{% static 'img/empty-country-road-in-fog-24821.jpg' %}')">
+        <div id="top-background-text-container">
+            <h1>Empowering Creators</h1>
+            <p>By providing free stock photos Pexels helps millions of creators all over the world to easily create beautiful products and designs.</p>
+        </div>
+    </div>
+
+
+    <div id="about-container">
+
+        <h2>What is this?</h2>
+
+        <p>It is a <a href="https://www.pexels.com"><i>Pexels</i></a> clone that I made in my spare time. It took around 3 weeks to finish I think, but hey I was busy with work, too! I was thinking of making an ecommerce website for a portofolio project, but it's just too common and complicated, logic-wise. Photo-sharing web apps are not that technically different anyway, and it's simpler, plus Pexels is just fricking good, so that's why I chose it as my project model. 
+        <br>
+        Only primitive tools are used:
+            <ul>
+                <li>Django</li>
+                <li>HTML</li>
+                <li>Javascript + MacyJS, ChartJS</li>
+                <li>CSS + Bootstrap.</li>
+            </ul>
+        Social media icons are taken from <a href="https://www.flaticon.com"><i>Flaticon:</i></a> <a href="https://www.flaticon.com/free-icon/instagram_2111463"><i>Intagram</i></a>, <a href="https://www.flaticon.com/free-icon/facebook_174848"><i>Facebook</i></a>, and <a href="https://www.flaticon.com/free-icon/linkedin_174857"><i>Linkedin</i></a> (dear artists, thank you so much!).
+        </p>
+
+        <br>
+        <br>
+        <h2>Creator</h2>
+
+        <img src="{% static 'img/me.jpg'%}" id="my-photo" alt="My photo while vacationing in Japan">
+        <div id="my-bio">
+            <p>Hello, my name is Pratyaksa. I work remotely at a Singaporean O2O company as a <strong><i>data analyst</i></strong>. Although I mostly work with MySQL to make, amend, and maintain reports, I also do a lot of other seemingly unrelated tasks, like: 
+                <ol>
+                    <li>Beta testing</li>
+                    <li>Data migration queries</li>
+                    <li>Customer services.</li>
+                </ol>
+                Learning a backend development thus is a natural follow-up, and will enable me to build web apps independently.
+            </p>
+        </div>
+
+    </div>
+
+{% endblock content %}

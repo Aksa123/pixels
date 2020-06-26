@@ -1,0 +1,80 @@
+{% extends 'axa_admin/base.html' %}
+
+{% block content %}
+
+<!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Photo List</h6>
+            </div>
+            <div class="card-body">
+              <a href="{% url 'admin_photo_create' %}" class="btn btn-primary">Add</a>
+              <br>
+              <br>
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Picture</th>
+                      <th>Name</th>
+                      <th>Tags</th>
+                      <th>Author</th>
+                      <th>Views</th>
+                      <th>Likes</th>
+                      <th>Favorites</th>
+                      <th>Downloads</th>
+                      <th>Date</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>ID</th>
+                      <th>Picture</th>
+                      <th>Name</th>
+                      <th>Tags</th>
+                      <th>Author</th>
+                      <th>Views</th>
+                      <th>Likes</th>
+                      <th>Favorites</th>
+                      <th>Downloads</th>
+                      <th>Date</th>
+                      <th>Action</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    {% for item in object_list %}
+                    <tr>
+                      <td>{{item.id}}</td>
+                      <td><img src="{{ item.get_url }}" class="photo-list-item-image"></td>
+                      <td>{{item.name}}</td>
+                      <td>{% if item.tag.exists %}{% for i in item.get_tag %}{{i}}{% if forloop.last == False %}, {% endif %}{% endfor %}{% else %} - {%endif %}</td>
+                      <td>{{item.user.userprofile.name}}</td>
+                      <td>{{item.total_view}}</td>
+                      <td>{{item.total_like}}</td>
+                      <td>{{item.total_favorite}}</td>
+                      <td>{{item.total_download}}</td>
+                      <td>{{item.date|date}}</td>
+                      <td>
+                        <a class="btn btn-success" href="{% url 'admin_photo_detail' item.id %}">Edit</a>
+                        <form method="POST" action="{% url 'admin_photo_delete' item.id %}" style="display: inline">
+                          {% csrf_token %}
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+{% endblock content %}

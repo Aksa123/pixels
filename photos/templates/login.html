@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Pixels - Login
+{% endblock title %}
+
+{% block content %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <div class="container-fluid login-box">
+        
+        <div class="container-fluid login-input-box">
+            <h2>LOGIN</h2>
+            <br>
+            <form method="POST" action="{% url 'login' %}">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control login-input" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control login-input" name="password" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <br><br>
+            <p>Don't have an account yet? Register <a href="{% url 'signup' %}">here!</a></p>
+        </div>
+
+    </div>
+
+
+
+
+{% endblock content %}

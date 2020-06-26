@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/profile_edit.css' %}">
+
+    <div id="outside-border">
+        <div id="edit-profile-box">
+            <form method="POST" action="{% url 'profile_edit' profile.user_id profile.slug %}" enctype="multipart/form-data">
+                <h1 id="edit-title">Edit your profile</h1>
+                <div class="input-box form-group">
+                    <label>Avatar</label>
+                    <img src="{{ profile.get_url }}" id="avatar" class="rounded-circle" name="avatar">
+                    <input class="btn btn-success" type="file" id="img" name="image" accept="image/*" onchange="document.getElementById('avatar').src = window.URL.createObjectURL(this.files[0])">
+                </div>
+
+                <div class="input-box form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="name" value="{{ profile.name }}">
+                </div>
+
+                <div class="input-box form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" value="{{ profile.user.username }}">
+                </div>
+
+                <div class="input-box form-group">
+                    <label>Short bio</label>
+                    <textarea  class="form-control" maxlength="140" name="description">{{ profile.description }}</textarea>
+                </div>
+
+                {% csrf_token %}
+
+                <button type="submit" id="submit-button" class="btn btn-primary">Update profile</button>
+
+            </form>
+        </div>
+    </div>
+
+
+{% endblock content %}
