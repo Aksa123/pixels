@@ -17,7 +17,11 @@ def admin_middleware(get_response):
                     "subject": "access denied on branch nanana test2", 
                     "content": "u must be logged in as admin bruh, this is test2", 
                     "by": "Aksa", 
-                    "branch": "this is test2",
+<<<<<<< HEAD
+                    
+=======
+                    "branch": "from test5",
+>>>>>>> test5
                     "date": datetime.now().strftime("%c")})
 
         response = get_response(request)
