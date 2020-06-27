@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import request, HttpResponse, JsonResponse, HttpResponseRedirect
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse, reverse_lazy, resolve
 from django.views import View
 from django.views.generic import DetailView
 from django.views.generic.list import ListView
@@ -21,10 +21,9 @@ def admin_test(request):
 class AdminHome(View):
 
     def get(self, request):
-        if "admin" in request.path_info:
-            print ("exist")
-        else:
-            print ("nope")
+        
+        # print (resolve(request.path_info).url_name)
+        print(request)
         return render(self.request, "axa_admin/base.html")
         
 
