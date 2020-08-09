@@ -6,6 +6,8 @@ Pixels - Login
 
 {% block content %}
 
+    {% load socialaccount %}
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <div class="container-fluid login-box">
@@ -27,6 +29,7 @@ Pixels - Login
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
             <br><br>
+            <p>Login with your <a href="{% provider_login_url "facebook" method="oauth2" %}">Facebook</a> account.</p>
             <p>Don't have an account yet? Register <a href="{% url 'signup' %}">here!</a></p>
         </div>
 

@@ -21,5 +21,10 @@ urlpatterns = [
     path('django-admin/', admin.site.urls),
     path('admin/', include('axa_admin.urls')),
     path('', include('photos.urls')),
+
+    # social auth (allauth)
+    path('accounts/', include('allauth.urls')),
     
 ]
+
+
