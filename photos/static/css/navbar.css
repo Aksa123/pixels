@@ -71,6 +71,35 @@ input[type="number"] {
 }
 
 
+.logout-button{
+    background: none;
+    border: none !important;
+    padding: 0.25rem 1.5rem;
+    color: black;
+}
+
+.logout-button:focus{
+    background: none;
+    border: none !important;
+    padding: 0.25rem 1.5rem;
+    color: black;
+}
+
+.logout-button:active{
+    background: none;
+    border: none !important;
+    padding: 0.25rem 1.5rem;
+    color: black;
+}
+
+.logout-button:hover{
+    background: none;
+    border: none !important;
+    padding: 0.25rem 1.5rem;
+    color: black;
+}
+
+
 #footer{
     margin-top: 100px;
     padding-bottom: 100px;

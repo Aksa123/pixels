@@ -12,7 +12,7 @@ SITE_ROOT = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('test/<str:param>', views.Test.as_view(), name="test"),
+    path('test/<str:param>/', views.Test.as_view(), name="test"),
     path('login/', views.Login.as_view(), name="login"),
     path('signup/', views.Signup.as_view(), name="signup"),
     path('logout/', views.logout_view, name="logout"),

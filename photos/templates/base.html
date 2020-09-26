@@ -50,7 +50,11 @@
                     <button type="button" class="btn btn-info nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbar-join">Dropdown</button>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'profile' user.id user.userprofile.slug %}">Profile</a>
-                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                        {% comment %} <a class="dropdown-item" href="{% url 'logout' %}">Logout</a> {% endcomment %}
+                        <form action = "{% url 'logout' %}" method = "POST">
+                            {% csrf_token %}
+                            <button class="logout-button" type="submit">Logout</button>
+                        </form>
                     </div>
                     </div>
                 {% else %}

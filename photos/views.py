@@ -95,7 +95,7 @@ class Login(View):
         password = request.POST['password']
         auth = authenticate(request, username=email, password=password)
         if auth is not None:
-            login(request, auth)
+            login(request, auth, backend="django.contrib.auth.backends.ModelBackend")
             return HttpResponseRedirect(reverse('home'))
         else:
             return HttpResponse("user not found")
@@ -115,15 +115,18 @@ class Signup(View):
         user = User.objects.create_user(username=email, email=email, first_name=username, password=password)
         profile = UserProfile(user=user, name=username, avatar=image)
         profile.save()
-        login(request, user)
+        login(request, user, backend="django.contrib.auth.backends.ModelBackend")
 
         return HttpResponseRedirect(reverse('profile', args=[user.id, profile.slug]))
         # return JsonResponse({"image": image})
 
 
 def logout_view(request):
-    logout(request)
-    return HttpResponseRedirect(reverse('home'))
+    if request.method == "POST":
+        logout(request)
+        return HttpResponseRedirect(reverse('home'))
+    else:
+        return HttpResponse("method is not allowed!")
 
 
 
